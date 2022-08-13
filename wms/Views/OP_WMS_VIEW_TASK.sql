@@ -49,6 +49,10 @@
 -- Fecha:				06-Diciembre-2019 G-Force@Kioto
 -- Descripcion:			Se agrega campo Regimen en group by para mostrar las tareas por regimen fiscal
 
+-- Autor:				Elder Lucas
+-- Fecha:				25 de julio de 2022
+-- Descripcion:			Se agren campos para manejo de tareas de masterpack
+
 /*
 	Ejemplo Ejecucion: 
     SELECT * FROM [wms].[OP_WMS_VIEW_TASK] where wave_picking_id = 4386
@@ -69,6 +73,7 @@ SELECT
 	,MAX([SERIAL_NUMBER]) AS [SERIAL_NUMBER]
 	,MAX([ASSIGNED_DATE]) AS [ASSIGNED_DATE]
 	,MAX([ACCEPTED_DATE]) AS [ACCEPTED_DATE]
+	,MAX([COMPLETED_DATE]) AS [COMPLETED_DATE]
 	,MAX([COMPLETED_DATE]) AS [PICKING_FINISHED_DATE]
 	,MAX([IS_CANCELED]) AS [IS_CANCELED]
 	,MAX([QUANTITY_PENDING]) AS [QUANTITY_PENDING]
@@ -112,6 +117,7 @@ SELECT
 	,[A].[PROJECT_CODE]
 	,[A].[PROJECT_NAME]
 	,[A].[PROJECT_SHORT_NAME]
+	,[A].[ORDER_NUMBER]
 FROM
 	[wms].[OP_WMS_TASK_LIST] AS [A]
 LEFT JOIN [wms].[OP_WMS_POLIZA_HEADER] [PHS] ON [PHS].[DOC_ID] = [A].[DOC_ID_SOURCE]
@@ -141,4 +147,8 @@ GROUP BY
 	,[A].[PROJECT_CODE]
 	,[A].[PROJECT_NAME]
 	,[A].[PROJECT_SHORT_NAME]
-	,[A].[REGIMEN];
+	,[A].[REGIMEN]
+	,[A].[COMPLETED_DATE]
+	,[A].[ORDER_NUMBER];
+GO
+

@@ -11,8 +11,8 @@
     <OutputType>Database</OutputType>
     <RootPath>
     </RootPath>
-    <RootNamespace>cicd_wms_bd</RootNamespace>
-    <AssemblyName>cicd_wms_bd</AssemblyName>
+    <RootNamespace>CICDWmsBD</RootNamespace>
+    <AssemblyName>CICDWmsBD</AssemblyName>
     <ModelCollation>1033,CI</ModelCollation>
     <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
     <DeployToDatabase>True</DeployToDatabase>
